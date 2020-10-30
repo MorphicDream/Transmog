@@ -1,0 +1,7 @@
+main: me.morphicdream.Transmog
+version: 1.0.0
+name: Transmog
+author: MorphicDream
+commands:
+  transmog:
+    description: Shows all the transmog blocks
