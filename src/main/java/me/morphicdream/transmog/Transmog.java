@@ -19,28 +19,23 @@ public class Transmog extends JavaPlugin {
         calculateTransmogs();
     }
 
-    public static Random getRandom() {
+    static Random getRandom() {
         return random;
     }
 
     private static void calculateTransmogs() {
-        final int quarter = Blocks.getList().size() / 4;
+        final int half = Blocks.getList().size() / 2;
         int count = 0;
-        int blockCount = 0;
         ItemStack stack1, stack2;
-        List<Blocks> blocksList = new ArrayList<>();
 
-        for(Blocks blocks : Blocks.getList()){
 
+        while (count < half) {
+            stack1 = Blocks.getList().get(count).getItemStack();
+            stack2 = Blocks.getList().get(half + count).getItemStack();
+            list.put(stack1, stack2);
+            list.put(stack2, stack1);
+            count++;
         }
-
-//        while (count < half) {
-//            stack1 = Blocks.getList().get(count).getItemStack();
-//            stack2 = Blocks.getList().get(half + count).getItemStack();
-//            list.put(stack1, stack2);
-//            list.put(stack2, stack1);
-//            count++;
-//        }
 
     }
 
@@ -48,7 +43,7 @@ public class Transmog extends JavaPlugin {
         return list.get(stack);
     }
 
-    public static Map<ItemStack, ItemStack> getAllTransmogs(){
+    static Map<ItemStack, ItemStack> getAllTransmogs(){
         return list;
     }
 }

@@ -32,7 +32,6 @@ public class BlockBreakListener implements Listener {
         if(Transmog.getTransmog(stack) != null) {
             loc.getWorld().dropItemNaturally(loc, Transmog.getTransmog(stack));
         }else{
-            Block block = event.getBlock();
             Bukkit.getServer().getLogger().info("Block not in list, generating correct itemstack");
             loc.getWorld().dropItemNaturally(loc, stack);
         }
