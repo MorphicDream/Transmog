@@ -1,4 +1,4 @@
-package me.morphicdream.transmog;
+package me.morphicdream.transmog.transmogs;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -8,17 +8,9 @@ import java.util.Collections;
 import java.util.List;
 
 public enum Blocks {
-
-
-//    STONE, GRANITE, POLISHED_GRANITE, DIORITE, POLISHED_DIORITE, ANDESITE, POLISHED_ANDESITE, DIRT, COARSE_DIRT,
-//    PODZOL, OAK_WOOD, SPRUCE_WOOD, BIRCH_WOOD, JUNGLE_WOOD, ACACIA_WOOD, DARK_OAK_WOOD, COBBLESTONE, OAK_SAPLING,
-//    SPRUCE_SAPLING, BIRCH_SAPLING, JUNGLE_SAPLING, ACACIA_SAPLING, DARK_OAK_SAPLING, SAND, RED_SAND, GRAVEL,
-//    GOLD_ORE, IRON_ORE, COAL_ORE, OAK_LOG, SPRUCE_LOG, BIRCH_LOG, JUNGLE_LOG, OAK_LEAVES, SPRUCE_LEAVES, BIRCH_LEAVES,
-//    JUNGLE_LEAVES, SPONGE, WET_SPONGE, GLASS, LAPIS_ORE, LAPIS_BLOCK, SANDSTONE, CHISELED_SANDSTONE, SMOOTH_SANDSTONE,
-//    BED, COBWEB, DEAD_SHRUB, TALL_GRASS, FERN, DEAD_BUSH, WHITE_WOOL, ORANGE_WOOL, MAGENTA_WOOL, LIGHT_BLUE_WOOL,
-//    YELLOW_WOOL, LIME_WOOL, PINK_WOOL, GRAY_WOOL, LIGHT_GRAY_WOOL, CYAN_WOOL, PURPLE_WOOL, BLUE_WOOL, BROWN_WOOL,
-//    GREEN_WOOL, RED_WOOL, BLACK_WOOL, DANDELION, POPPY, BLUE_ORCHID, ALLIUM, AZURE_BLUET, RED_TULIP, ORANGE_TULIP,
-//    WHITE_TULIP, PINK_TULIP, OXEYE_DAISY, GOLD_BLOCK, IRON_BLOCK, DOUBLE_STONE_SLAB, GRASS, WHEAT;
+    /*
+    This list should always be even in size
+     */
 
     POPPY(Material.RED_ROSE, 0),
     POLISHED_DIORITE(Material.STONE, 4),
@@ -95,17 +87,32 @@ public enum Blocks {
     WET_SPONGE(Material.SPONGE, 1),
     GOLD_ORE(Material.GOLD_ORE, 0),
     ORANGE_WOOL(Material.WOOL, 1),
-    WHEAT(Material.WHEAT, 0),
     WHITE_WOOL(Material.WOOL, 0),
     COBBLESTONE(Material.COBBLESTONE, 0),
     PODZOL(Material.DIRT, 2),
     SMOOTH_SANDSTONE(Material.SANDSTONE, 2),
     BLUE_WOOL(Material.WOOL, 11),
-    CHISELED_SANDSTONE(Material.SANDSTONE, 1);
+    CHISELED_SANDSTONE(Material.SANDSTONE, 1),
+    //ANIMAL FOOD
+    RAW_BEEF(Material.RAW_BEEF, 0),
+    RAW_CHICKEN(Material.RAW_CHICKEN, 0),
+    RAW_FISH(Material.RAW_FISH, 0),
+    RAW_MUTTON(Material.MUTTON, 0),
+    RAW_RABBIT(Material.RABBIT, 0),
+    COOKED_BEEF(Material.COOKED_BEEF, 0),
+    COOKED_CHICKEN(Material.COOKED_CHICKEN, 0),
+    COOKED_FISH(Material.COOKED_FISH, 0),
+    COOKED_MUTTON(Material.COOKED_MUTTON, 0),
+    COOKED_RABBIT(Material.COOKED_RABBIT, 0),
+    //GROWN FOOD
+    APPLE(Material.APPLE, 0),
+    CARROT(Material.CARROT, 0),
+    POTATO(Material.POTATO, 0),
+    WHEAT(Material.WHEAT, 0),
+    MUSHROOM(Material.BROWN_MUSHROOM, 0);
 
-
-    private Material material;
-    private int data;
+    private final Material material;
+    private final int data;
     private static final List<Blocks> list = Collections.unmodifiableList(Arrays.asList(values()));
 
     Blocks(Material material, int data) {
@@ -113,25 +120,25 @@ public enum Blocks {
         this.data = data;
     }
 
-    public static List<Blocks> getList(){
+    public static List<Blocks> getList() {
         return list;
     }
 
-    public static ItemStack getRandomItemStack(){
+    /*public static ItemStack getRandomItemStack() {
         return list.get(Transmog.getRandom().nextInt(list.size())).getItemStack();
-    }
+    }*/
 
-    public Material getMaterial(){
+    public Material getMaterial() {
         return this.material;
     }
 
-    public int getData(){
+    public int getData() {
         return this.data;
     }
 
-    public ItemStack getItemStack(){
+    public ItemStack getItemStack() {
         ItemStack stack = new ItemStack(getMaterial(), 1);
-        if(getData() > 0) {
+        if (getData() > 0) {
             stack.setDurability((short) getData());
         }
         return stack;

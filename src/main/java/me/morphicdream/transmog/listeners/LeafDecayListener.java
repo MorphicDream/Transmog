@@ -6,16 +6,16 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
 import java.util.Iterator;
 
-public class BlockBreakListener implements Listener {
+public class LeafDecayListener implements Listener {
 
     @EventHandler
-    public void onBlockBreak(BlockBreakEvent event) {
+    public void onLeafDecay(LeavesDecayEvent event){
         Collection<ItemStack> stacks = event.getBlock().getDrops();
         String version = Bukkit.getVersion();
         Iterator<ItemStack> iterator = stacks.iterator();
@@ -24,8 +24,6 @@ public class BlockBreakListener implements Listener {
             for (ItemStack stack : event.getBlock().getDrops()) {
                 stack.setType(Material.AIR);
             }
-        } else if (version.contains("1.12") || version.contains("1.11") || version.contains("1.10") || version.contains("1.9")) {
-            event.setDropItems(false);
         }
 
         if (!stacks.isEmpty()) {
