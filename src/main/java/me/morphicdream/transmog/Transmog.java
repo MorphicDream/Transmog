@@ -2,6 +2,7 @@ package me.morphicdream.transmog;
 
 import me.morphicdream.transmog.listeners.BlockBreakListener;
 import me.morphicdream.transmog.listeners.KillMobsListener;
+import me.morphicdream.transmog.listeners.LeafDecayListener;
 import me.morphicdream.transmog.transmogs.Blocks;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -17,7 +18,7 @@ public class Transmog extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        registerListeners(new BlockBreakListener(), new KillMobsListener());
+        registerListeners(new BlockBreakListener(), new KillMobsListener(), new LeafDecayListener());
         getCommand("transmog").setExecutor(new ListCommand());
         calculateTransmogs();
     }
