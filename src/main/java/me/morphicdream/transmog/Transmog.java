@@ -23,8 +23,8 @@ public class Transmog extends JavaPlugin {
         calculateTransmogs();
     }
 
-    public void registerListeners(Listener... listeners){
-        for(Listener listener : listeners){
+    public void registerListeners(Listener... listeners) {
+        for (Listener listener : listeners) {
             Bukkit.getServer().getPluginManager().registerEvents(listener, this);
         }
     }
@@ -38,7 +38,6 @@ public class Transmog extends JavaPlugin {
         int count = 0;
         ItemStack stack1, stack2;
 
-
         while (count < half) {
             stack1 = Blocks.getList().get(count).getItemStack();
             stack2 = Blocks.getList().get(half + count).getItemStack();
@@ -46,7 +45,6 @@ public class Transmog extends JavaPlugin {
             list.put(stack2, stack1);
             count++;
         }
-
     }
 
     public static ItemStack getTransmog(ItemStack stack) {

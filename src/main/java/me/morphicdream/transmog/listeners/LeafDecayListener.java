@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class LeafDecayListener implements Listener {
 
     @EventHandler
-    public void onLeafDecay(LeavesDecayEvent event){
+    public void onLeafDecay(LeavesDecayEvent event) {
         Collection<ItemStack> stacks = event.getBlock().getDrops();
         String version = Bukkit.getVersion();
         Iterator<ItemStack> iterator = stacks.iterator();

@@ -9,9 +9,9 @@ public class ListCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
-        if(command.getLabel().equalsIgnoreCase("transmog")){
+        if (command.getLabel().equalsIgnoreCase("transmog")) {
             ItemStack val;
-            for(ItemStack stack : Transmog.getAllTransmogs().keySet()){
+            for (ItemStack stack : Transmog.getAllTransmogs().keySet()) {
                 val = Transmog.getAllTransmogs().get(stack);
                 System.out.println(stack.getType().name() + ":" + stack.getDurability() + " and " +
                         val.getType().name() + ":" + val.getDurability());
